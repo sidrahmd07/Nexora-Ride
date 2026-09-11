@@ -1,0 +1,1794 @@
+/* =====================================================
+   NEXORA RIDE
+   SMART COLLEGE BUS
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+
+/* ================= GLOBAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image:
+        linear-gradient(#d4af37 1px, transparent 1px),
+        linear-gradient(90deg, #d4af37 1px, transparent 1px);
+    background-size: 70px 70px;
+    z-index: -1;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 78px;
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(5, 5, 5, 0.88);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.logo {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #d4af37;
+}
+
+.logo small {
+    display: block;
+    color: #d4af37;
+    font-size: 8px;
+    letter-spacing: 5px;
+    margin-top: -2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+.student {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.student-avatar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #d4af37;
+    border-radius: 50%;
+
+    color: #d4af37;
+    font-weight: 800;
+}
+
+.student strong {
+    display: block;
+    font-size: 12px;
+}
+
+.student small {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    margin-top: 2px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: calc(100vh - 78px);
+
+    padding: 80px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    width: 500px;
+    height: 500px;
+
+    right: 5%;
+    top: 10%;
+
+    border-radius: 50%;
+
+    background: #d4af37;
+    filter: blur(180px);
+    opacity: 0.07;
+
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 650px;
+    position: relative;
+    z-index: 2;
+}
+
+.status {
+    display: inline-block;
+
+    padding: 8px 14px;
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    color: #d4af37;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: 0.88;
+    font-weight: 900;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #d4af37;
+}
+
+.hero p {
+    max-width: 550px;
+
+    margin: 35px 0;
+
+    color: #999;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.primary-btn {
+    border: none;
+
+    padding: 15px 24px;
+
+    background: #d4af37;
+    color: #050505;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.2);
+}
+
+.secondary-btn {
+    padding: 14px 24px;
+
+    background: transparent;
+
+    border: 1px solid #d4af37;
+
+    color: #d4af37;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    background: #d4af37;
+    color: #050505;
+}
+
+
+/* ================= HERO CARD ================= */
+
+.hero-card {
+    width: 390px;
+
+    padding: 35px;
+
+    background: linear-gradient(
+        145deg,
+        #111,
+        #080808
+    );
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.7),
+        inset 0 0 30px rgba(212, 175, 55, 0.025);
+
+    position: relative;
+    z-index: 2;
+}
+
+.bus-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(212, 175, 55, 0.08);
+
+    border: 1px solid rgba(212, 175, 55, 0.3);
+
+    font-size: 28px;
+
+    margin-bottom: 25px;
+}
+
+.hero-card h3 {
+    font-size: 25px;
+}
+
+.hero-route {
+    margin: 12px 0 30px;
+
+    color: #999;
+    font-size: 13px;
+
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.hero-route span {
+    color: #d4af37;
+    font-size: 20px;
+}
+
+.hero-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #222;
+}
+
+.hero-info small,
+.summary-card small,
+.ticket-info small {
+    display: block;
+
+    color: #666;
+
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+}
+
+.hero-info strong {
+    font-size: 14px;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+    padding: 110px 8%;
+    border-top: 1px solid #151515;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 55px;
+}
+
+.section-label {
+    color: #d4af37;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.section h2 {
+    margin-top: 12px;
+
+    font-size: clamp(40px, 5vw, 65px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+.section h2 span {
+    color: #d4af37;
+}
+
+.section-heading > p {
+    max-width: 300px;
+
+    color: #777;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ================= BOOKING CARD ================= */
+
+.booking-card {
+    padding: 28px;
+
+    margin-bottom: 20px;
+
+    background: #0b0b0b;
+
+    border: 1px solid #1b1b1b;
+
+    transition: 0.3s;
+}
+
+.booking-card:hover {
+    border-color: rgba(212, 175, 55, 0.25);
+}
+
+.booking-card label {
+    display: block;
+
+    margin-bottom: 16px;
+
+    color: #ddd;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.booking-card input[type="date"] {
+    width: 100%;
+    max-width: 300px;
+
+    padding: 14px;
+
+    background: #050505;
+
+    border: 1px solid #292929;
+
+    color: white;
+
+    outline: none;
+}
+
+.booking-card input[type="date"]:focus {
+    border-color: #d4af37;
+}
+
+
+/* ================= BUS OPTIONS ================= */
+
+.bus-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.bus-option {
+    padding: 22px;
+
+    text-align: left;
+
+    background: #080808;
+
+    border: 1px solid #222;
+
+    color: white;
+
+    transition: 0.3s;
+}
+
+.bus-option:hover,
+.bus-option.active {
+    border-color: #d4af37;
+
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.bus-option strong {
+    display: block;
+
+    color: #d4af37;
+
+    font-size: 17px;
+}
+
+.bus-option span {
+    display: block;
+
+    margin: 7px 0;
+
+    color: #bbb;
+
+    font-size: 12px;
+}
+
+.bus-option small {
+    color: #666;
+}
+
+
+/* ================= SEATS ================= */
+
+.seat-heading {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.seat-heading label {
+    margin-bottom: 5px;
+}
+
+.seat-heading p {
+    color: #666;
+
+    font-size: 11px;
+}
+
+.seat-legend {
+    display: flex;
+
+    gap: 18px;
+
+    color: #777;
+
+    font-size: 10px;
+}
+
+.seat-legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.seat-legend i {
+    width: 9px;
+    height: 9px;
+
+    display: inline-block;
+
+    border: 1px solid #555;
+}
+
+.seat-legend .available {
+    background: #111;
+}
+
+.seat-legend .selected {
+    background: #d4af37;
+    border-color: #d4af37;
+}
+
+.seat-legend .occupied {
+    background: #333;
+}
+
+
+.bus-layout {
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    background: #050505;
+
+    border: 1px solid #222;
+
+    border-radius: 20px;
+}
+
+.driver {
+    width: 100px;
+
+    margin-left: auto;
+    margin-bottom: 25px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    background: #151515;
+
+    border: 1px solid #333;
+
+    color: #777;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 9px;
+}
+
+.seats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.seat {
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #101010;
+
+    border: 1px solid #292929;
+
+    color: #aaa;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 11px;
+
+    transition: 0.25s;
+}
+
+.seat:hover {
+    border-color: #d4af37;
+
+    color: #d4af37;
+
+    transform: scale(1.04);
+}
+
+.seat.selected {
+    background: #d4af37;
+
+    border-color: #d4af37;
+
+    color: #050505;
+
+    font-weight: bold;
+}
+
+.seat.occupied {
+    background: #222;
+
+    border-color: #222;
+
+    color: #555;
+
+    cursor: not-allowed;
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary-card {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 45px;
+
+    background: #0c0c0c;
+
+    border: 1px solid #222;
+}
+
+.summary-card > div {
+    min-width: 120px;
+}
+
+.summary-card strong {
+    display: block;
+
+    font-size: 18px;
+}
+
+.summary-card .primary-btn {
+    margin-left: auto;
+}
+
+
+/* ================= PAYMENT ================= */
+
+.payment-container,
+.verification-container,
+.success-container {
+    max-width: 650px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.payment-container h2,
+.verification-container h2,
+.success-container h2 {
+    margin-bottom: 15px;
+}
+
+.payment-card {
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background: #0b0b0b;
+
+    border: 1px solid #252525;
+}
+
+.payment-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: auto auto 20px;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.1);
+
+    border: 1px solid #d4af37;
+
+    color: #d4af37;
+
+    font-size: 25px;
+}
+
+.payment-card h3 {
+    font-size: 24px;
+}
+
+.payment-card > p {
+    margin: 10px 0 30px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.payment-details {
+    margin-bottom: 30px;
+
+    border-top: 1px solid #222;
+}
+
+.payment-details div {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #191919;
+
+    font-size: 12px;
+}
+
+.payment-details span {
+    color: #777;
+}
+
+.payment-details strong {
+    color: #ddd;
+}
+
+.payment-details .total strong {
+    color: #d4af37;
+
+    font-size: 22px;
+}
+
+.full {
+    width: 100%;
+}
+
+
+/* ================= SCANNER ================= */
+
+.verification-container > p {
+    margin-top: 15px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+.scanner {
+    width: 320px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    background: #080808;
+
+    border: 1px solid #252525;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.scanner-frame {
+    width: 220px;
+    height: 150px;
+
+    position: relative;
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.scan-line {
+    position: absolute;
+
+    width: 90%;
+    height: 2px;
+
+    left: 5%;
+    top: 50%;
+
+    background: #d4af37;
+
+    box-shadow: 0 0 15px #d4af37;
+
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+
+    0% {
+        top: 10%;
+    }
+
+    50% {
+        top: 90%;
+    }
+
+    100% {
+        top: 10%;
+    }
+
+}
+
+.corner {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    border-color: #d4af37;
+    border-style: solid;
+}
+
+.top-left {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+}
+
+.top-right {
+    top: -1px;
+    right: -1px;
+    border-width: 2px 2px 0 0;
+}
+
+.bottom-left {
+    bottom: -1px;
+    left: -1px;
+    border-width: 0 0 2px 2px;
+}
+
+.bottom-right {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+}
+
+.scan-icon {
+    color: #d4af37;
+
+    font-size: 25px;
+}
+
+.scanner strong {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.scanner small {
+    color: #555;
+
+    font-size: 9px;
+}
+
+
+/* ================= SUCCESS ================= */
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: auto auto 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.1);
+
+    border: 1px solid #d4af37;
+
+    color: #d4af37;
+
+    font-size: 35px;
+
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.12);
+}
+
+.success-container > p {
+    color: #777;
+
+    margin-top: 15px;
+}
+
+
+/* ================= TICKET ================= */
+
+.ticket {
+    margin: 40px auto;
+
+    max-width: 500px;
+
+    text-align: left;
+
+    background: #0c0c0c;
+
+    border: 1px solid #333;
+}
+
+.ticket-header {
+    padding: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-bottom: 1px dashed #333;
+}
+
+.ticket-header strong {
+    color: #d4af37;
+}
+
+.ticket-header span {
+    color: #666;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.ticket-info {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    padding: 25px;
+}
+
+.ticket-info strong {
+    font-size: 15px;
+}
+
+.ticket-status {
+    padding: 15px;
+
+    text-align: center;
+
+    background: rgba(212, 175, 55, 0.06);
+
+    border-top: 1px solid #252525;
+
+    color: #d4af37;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ================= BOOKING HISTORY ================= */
+
+.empty-booking {
+    padding: 70px 20px;
+
+    text-align: center;
+
+    background: #0a0a0a;
+
+    border: 1px dashed #252525;
+
+    color: #666;
+}
+
+.empty-booking div {
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.empty-booking p {
+    font-size: 12px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 60px 8%;
+
+    border-top: 1px solid #151515;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+footer p {
+    color: #555;
+
+    font-size: 11px;
+}
+
+footer > span {
+    color: #444;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 9px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding-top: 70px;
+    }
+
+    .hero-card {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .bus-options {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card {
+        flex-wrap: wrap;
+    }
+
+    .summary-card .primary-btn {
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+    .section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 6%;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .section {
+        padding: 80px 6%;
+    }
+
+    .seat-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .seat-legend {
+        flex-wrap: wrap;
+    }
+
+    .seats {
+        gap: 7px;
+    }
+
+    .seat {
+        height: 42px;
+    }
+
+    .summary-card {
+        gap: 25px;
+    }
+
+    .student {
+        display: none;
+    }
+
+    footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   NEXORA RIDE — CINEMATIC ANIMATION UPGRADE
+   Add this at the VERY BOTTOM of style.css
+   ========================================================= */
+
+
+/* ================= MOVING BACKGROUND ================= */
+
+body {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(212, 175, 55, 0.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(212, 175, 55, 0.05),
+            transparent 30%
+        ),
+        #050505;
+}
+
+
+/* Moving grid */
+
+body::before {
+    opacity: 0.06;
+
+    background-image:
+        linear-gradient(
+            rgba(212, 175, 55, 0.18) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(212, 175, 55, 0.18) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    animation: gridMove 18s linear infinite;
+}
+
+@keyframes gridMove {
+
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 80px 80px;
+    }
+
+}
+
+
+/* ================= GOLD FLOATING LIGHT ================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    left: -150px;
+    top: 30%;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.07);
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    animation: floatingLight 8s ease-in-out infinite;
+
+    z-index: -1;
+}
+
+@keyframes floatingLight {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(180px, -100px);
+    }
+
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    transition: 0.4s ease;
+
+    animation: navDrop 0.8s ease both;
+}
+
+@keyframes navDrop {
+
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.logo {
+    position: relative;
+}
+
+.logo::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: #d4af37;
+
+    transition: 0.5s;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: #d4af37;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* ================= HERO ================= */
+
+.hero-content {
+    animation: heroReveal 1.2s ease both;
+}
+
+@keyframes heroReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+
+}
+
+.hero h1 {
+    text-shadow:
+        0 0 20px rgba(212, 175, 55, 0.04);
+
+    animation: titleGlow 4s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px rgba(212, 175, 55, 0.03);
+    }
+
+    50% {
+        text-shadow:
+            0 0 35px rgba(212, 175, 55, 0.13);
+    }
+
+}
+
+
+/* ================= HERO BUS CARD ================= */
+
+.hero-card {
+    animation:
+        cardEnter 1.2s ease 0.2s both,
+        heroFloat 5s ease-in-out 1.5s infinite;
+}
+
+@keyframes cardEnter {
+
+    from {
+        opacity: 0;
+        transform: translateX(60px) rotate(3deg);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+        filter: blur(0);
+    }
+
+}
+
+@keyframes heroFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+.hero-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -1px;
+
+    border: 1px solid transparent;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(212, 175, 55, 0.6),
+            transparent
+        )
+        border-box;
+
+    mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+
+    mask-composite: exclude;
+
+    opacity: 0;
+
+    animation: borderSweep 4s linear infinite;
+}
+
+@keyframes borderSweep {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+
+    70%,
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+}
+
+
+/* ================= BUS ICON ================= */
+
+.bus-icon {
+    animation: busPulse 3s ease-in-out infinite;
+}
+
+@keyframes busPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 rgba(212, 175, 55, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(212, 175, 55, 0.18);
+    }
+
+}
+
+
+/* ================= STATUS ================= */
+
+.status {
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 rgba(212, 175, 55, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px rgba(212, 175, 55, 0.1);
+    }
+
+}
+
+
+/* ================= BUTTONS ================= */
+
+.primary-btn,
+.secondary-btn {
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+.primary-btn::before,
+.secondary-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            100deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.6s;
+}
+
+.primary-btn:hover::before,
+.secondary-btn:hover::before {
+    left: 130%;
+}
+
+.primary-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+
+/* ================= SECTION REVEAL ================= */
+
+.section {
+    position: relative;
+}
+
+.section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+
+    width: 0;
+    height: 1px;
+
+    background: #d4af37;
+
+    animation: sectionLine 3s ease-in-out infinite;
+}
+
+@keyframes sectionLine {
+
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    30% {
+        width: 35%;
+        opacity: 1;
+    }
+
+    70% {
+        width: 35%;
+        opacity: 1;
+    }
+
+    100% {
+        width: 0;
+        opacity: 0;
+    }
+
+}
+
+
+/* ================= BOOKING CARDS ================= */
+
+.booking-card {
+    position: relative;
+
+    overflow: hidden;
+
+    animation: bookingAppear 0.7s ease both;
+}
+
+@keyframes bookingAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.booking-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 3px;
+    height: 0;
+
+    left: 0;
+    top: 50%;
+
+    background: #d4af37;
+
+    box-shadow: 0 0 20px #d4af37;
+
+    transition: 0.5s;
+}
+
+.booking-card:hover::before {
+    height: 100%;
+    top: 0;
+}
+
+
+/* ================= BUS OPTIONS ================= */
+
+.bus-option {
+    position: relative;
+
+    overflow: hidden;
+
+    transform: translateY(0);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.bus-option::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -50px;
+    top: -50px;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.08);
+
+    transition: 0.5s;
+}
+
+.bus-option:hover {
+    transform: translateY(-7px);
+}
+
+.bus-option:hover::after {
+    width: 180px;
+    height: 180px;
+}
+
+
+/* ================= SEATS ================= */
+
+.seat {
+    position: relative;
+
+    overflow: hidden;
+
+    animation: seatAppear 0.45s ease both;
+}
+
+@keyframes seatAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+.seat::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    left: -100%;
+    top: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212, 175, 55, 0.15),
+            transparent
+        );
+
+    transition: 0.4s;
+}
+
+.seat:hover::after {
+    left: 100%;
+}
+
+.seat.selected {
+    animation:
+        seatSelected 0.4s ease,
+        selectedPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes seatSelected {
+
+    0% {
+        transform: scale(0.8);
+    }
+
+    70% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+@keyframes selectedPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 rgba(212, 175, 55, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 22px rgba(212, 175, 55, 0.15);
+    }
+}

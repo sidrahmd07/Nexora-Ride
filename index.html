@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXORA RIDE | Smart College Bus</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>N</span>EXORA
+            <small>RIDE</small>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#booking">Book Seat</a>
+            <a href="#bookings">My Bookings</a>
+        </div>
+
+        <div class="student">
+            <div class="student-avatar">S</div>
+
+            <div>
+                <strong>Student</strong>
+                <small>ID: NX1024</small>
+            </div>
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <div class="status">
+                ● SYSTEM ONLINE
+            </div>
+
+            <h1>
+                SMART BUS
+                <span>BOOKING</span>
+            </h1>
+
+            <p>
+                Book your college bus seat only when you need it.
+                Scan your student ID, pay for the day, and travel.
+            </p>
+
+            <button class="primary-btn" onclick="scrollToBooking()">
+                BOOK TODAY'S SEAT →
+            </button>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="bus-icon">
+                🚌
+            </div>
+
+            <h3>Today's Bus</h3>
+
+            <div class="hero-route">
+                Lendi College
+                <span>→</span>
+                City Route
+            </div>
+
+            <div class="hero-info">
+
+                <div>
+                    <small>BUS</small>
+                    <strong>BUS-04</strong>
+                </div>
+
+                <div>
+                    <small>AVAILABLE</small>
+                    <strong>23 / 40</strong>
+                </div>
+
+                <div>
+                    <small>DAILY FEE</small>
+                    <strong>₹25</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BOOKING ================= -->
+
+    <section id="booking" class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">01 / BOOKING</span>
+
+                <h2>
+                    Reserve Your
+                    <span>Seat</span>
+                </h2>
+            </div>
+
+            <p>
+                Select the date, bus and seat you want to use.
+            </p>
+
+        </div>
+
+
+        <!-- DATE -->
+
+        <div class="booking-card">
+
+            <label>Select Date</label>
+
+            <input
+                type="date"
+                id="travelDate"
+            >
+
+        </div>
+
+
+        <!-- BUS -->
+
+        <div class="booking-card">
+
+            <label>Select Bus</label>
+
+            <div class="bus-options">
+
+                <button
+                    class="bus-option active"
+                    onclick="selectBus(this, 'BUS-04')"
+                >
+                    <strong>BUS-04</strong>
+                    <span>Lendi → City</span>
+                    <small>23 seats available</small>
+                </button>
+
+                <button
+                    class="bus-option"
+                    onclick="selectBus(this, 'BUS-07')"
+                >
+                    <strong>BUS-07</strong>
+                    <span>Lendi → Town</span>
+                    <small>12 seats available</small>
+                </button>
+
+                <button
+                    class="bus-option"
+                    onclick="selectBus(this, 'BUS-09')"
+                >
+                    <strong>BUS-09</strong>
+                    <span>Lendi → Highway</span>
+                    <small>18 seats available</small>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEATS -->
+
+        <div class="booking-card">
+
+            <div class="seat-heading">
+
+                <div>
+                    <label>Select Seat</label>
+                    <p>Choose an available seat.</p>
+                </div>
+
+                <div class="seat-legend">
+
+                    <span>
+                        <i class="available"></i>
+                        Available
+                    </span>
+
+                    <span>
+                        <i class="selected"></i>
+                        Selected
+                    </span>
+
+                    <span>
+                        <i class="occupied"></i>
+                        Occupied
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="bus-layout">
+
+                <div class="driver">
+                    DRIVER
+                </div>
+
+                <div class="seats" id="seatContainer">
+
+                    <!-- Generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOKING SUMMARY -->
+
+        <div class="summary-card">
+
+            <div>
+
+                <small>SELECTED SEAT</small>
+
+                <strong id="selectedSeat">
+                    None
+                </strong>
+
+            </div>
+
+            <div>
+
+                <small>BUS</small>
+
+                <strong id="selectedBus">
+                    BUS-04
+                </strong>
+
+            </div>
+
+            <div>
+
+                <small>DAILY FEE</small>
+
+                <strong>₹25</strong>
+
+            </div>
+
+            <button
+                class="primary-btn"
+                onclick="confirmBooking()"
+            >
+                CONTINUE →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAYMENT ================= -->
+
+    <section id="payment" class="section hidden">
+
+        <div class="payment-container">
+
+            <span class="section-label">
+                02 / PAYMENT
+            </span>
+
+            <h2>
+                Confirm Your
+                <span>Payment</span>
+            </h2>
+
+            <div class="payment-card">
+
+                <div class="payment-icon">
+                    ₹
+                </div>
+
+                <h3>Daily Bus Pass</h3>
+
+                <p>
+                    Your payment is only for this selected
+                    travel date.
+                </p>
+
+                <div class="payment-details">
+
+                    <div>
+                        <span>Date</span>
+                        <strong id="paymentDate">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Bus</span>
+                        <strong id="paymentBus">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Seat</span>
+                        <strong id="paymentSeat">--</strong>
+                    </div>
+
+                    <div class="total">
+                        <span>Total</span>
+                        <strong>₹25</strong>
+                    </div>
+
+                </div>
+
+                <button
+                    class="primary-btn full"
+                    onclick="processPayment()"
+                >
+                    PAY ₹25
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ID VERIFICATION ================= -->
+
+    <section id="verification" class="section hidden">
+
+        <div class="verification-container">
+
+            <span class="section-label">
+                03 / ID VERIFICATION
+            </span>
+
+            <h2>
+                Scan Student
+                <span>ID</span>
+            </h2>
+
+            <p>
+                Scan your college ID to verify your booking.
+            </p>
+
+            <div class="scanner">
+
+                <div class="scanner-frame">
+
+                    <div class="scan-line"></div>
+
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+
+                </div>
+
+                <div class="scan-icon">
+                    ▣
+                </div>
+
+                <strong>
+                    READY TO SCAN
+                </strong>
+
+                <small>
+                    Place your student ID inside the scanner
+                </small>
+
+            </div>
+
+            <button
+                class="primary-btn"
+                onclick="verifyID()"
+            >
+                SIMULATE ID SCAN
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SUCCESS ================= -->
+
+    <section id="success" class="section hidden">
+
+        <div class="success-container">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <span class="section-label">
+                BOOKING CONFIRMED
+            </span>
+
+            <h2>
+                You're Ready
+                <span>To Ride</span>
+            </h2>
+
+            <p>
+                Your bus seat has been successfully reserved.
+            </p>
+
+            <div class="ticket">
+
+                <div class="ticket-header">
+
+                    <strong>NEXORA RIDE</strong>
+
+                    <span>BUS PASS</span>
+
+                </div>
+
+                <div class="ticket-info">
+
+                    <div>
+                        <small>STUDENT</small>
+                        <strong>Student</strong>
+                    </div>
+
+                    <div>
+                        <small>BUS</small>
+                        <strong id="successBus">--</strong>
+                    </div>
+
+                    <div>
+                        <small>SEAT</small>
+                        <strong id="successSeat">--</strong>
+                    </div>
+
+                    <div>
+                        <small>DATE</small>
+                        <strong id="successDate">--</strong>
+                    </div>
+
+                </div>
+
+                <div class="ticket-status">
+                    PAYMENT VERIFIED ✓
+                </div>
+
+            </div>
+
+            <button
+                class="secondary-btn"
+                onclick="saveBooking()"
+            >
+                SAVE BOOKING
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MY BOOKINGS ================= -->
+
+    <section id="bookings" class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    04 / MY BOOKINGS
+                </span>
+
+                <h2>
+                    Your Bus
+                    <span>History</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div id="bookingHistory">
+
+            <div class="empty-booking">
+
+                <div>🚌</div>
+
+                <p>
+                    Your confirmed bookings will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="logo">
+            NEXORA <small>RIDE</small>
+        </div>
+
+        <p>
+            Smart mobility for the next generation of students.
+        </p>
+
+        <span>
+            © 2026 NEXORA
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
