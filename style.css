@@ -1792,3 +1792,124 @@ body::after {
             0 0 22px rgba(212, 175, 55, 0.15);
     }
 }
+
+/* =====================================================
+   NEXORA RIDE — PERFORMANCE FIX
+   ===================================================== */
+
+* {
+    backface-visibility: hidden;
+}
+
+body::before,
+body::after {
+    animation: none !important;
+}
+
+.hero::after {
+    animation: none !important;
+}
+
+.hero-card {
+    animation: cardEnter 0.8s ease both !important;
+}
+
+.status {
+    animation: none !important;
+}
+
+.bus-icon {
+    animation: none !important;
+}
+
+.hero h1 {
+    animation: none !important;
+}
+
+.section::before {
+    animation: none !important;
+}
+
+.booking-card {
+    animation: none !important;
+}
+
+.summary-card {
+    animation: none !important;
+}
+
+.payment-card {
+    animation: paymentIn 0.6s ease both !important;
+}
+
+.payment-icon {
+    animation: none !important;
+}
+
+.scanner {
+    animation: none !important;
+}
+
+.scanner-frame {
+    animation: none !important;
+}
+
+.corner {
+    animation: none !important;
+}
+
+.ticket {
+    animation: none !important;
+}
+
+.ticket::before {
+    animation: none !important;
+}
+
+.booking-history-card {
+    animation: none !important;
+}
+
+footer::before {
+    animation: none !important;
+}
+
+
+/* Keep ONLY the useful animations */
+
+.scan-line {
+    animation: scan 2.5s linear infinite !important;
+}
+
+.seat.selected {
+    animation: seatSelected 0.3s ease !important;
+}
+
+
+/* Reduce expensive hover effects */
+
+.hero-card:hover,
+.booking-card:hover,
+.bus-option:hover,
+.booking-history-card:hover {
+    transform: none;
+}
+
+
+/* Smooth buttons */
+
+.primary-btn,
+.secondary-btn,
+.bus-option,
+.seat {
+    transition: transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+}
+
+
+/* Prevent accidental browser rendering overload */
+
+html {
+    scroll-behavior: auto;
+}
